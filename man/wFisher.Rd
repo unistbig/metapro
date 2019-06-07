@@ -16,7 +16,9 @@ wFisher(p, weight = NULL, is.onetail = TRUE, eff.sign)
 \item{eff.sign}{A vector of signs of effect sizes. It works when is.onetail = FALSE}
 }
 \value{
-A Combined p-value
+p : Combined p-value
+
+overall.eff.direction : The direction of combined effects.
 }
 \description{
 sample size-weighted Fisher's method

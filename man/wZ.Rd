@@ -16,7 +16,11 @@ wZ(p, weight = NULL, is.onetail = TRUE, eff.sign)
 \item{eff.sign}{A vector of signs of effect sizes. It works when is.onetail = FALSE}
 }
 \value{
-Combined p-value
+p : Combined p-value
+
+overall.eff.direction : The direction of combined effects.
+
+sumz : Sum of transformed z-score
 }
 \description{
 P-value combination based on weighted Z-method

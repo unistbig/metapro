@@ -4,7 +4,7 @@
 \alias{MMPO}
 \title{MMPO}
 \usage{
-MMPO(p, is.onetail = TRUE, eff.sign)
+MMPO(p, is.onetail = TRUE, eff.sign = NULL)
 }
 \arguments{
 \item{p}{A vector of p-values}
@@ -14,7 +14,15 @@ MMPO(p, is.onetail = TRUE, eff.sign)
 \item{eff.sign}{A vector of signs of effect sizes. It works when is.onetail = FALSE}
 }
 \value{
-A list of Combined p-value based on MMPO method, the indices of effecitve p-values and NA values.
+p : Combined p-value
+
+optimal_rank : Optimal rank where minimum marginal p-value exists.
+
+eff.p.idx : Index of effective p-values
+
+MMP : Minimum marginal p-value
+
+overall.eff.direction : The direction of combined effects.
 }
 \description{
 Minimum Marginal P-value in joint order distribution

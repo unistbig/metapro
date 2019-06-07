@@ -16,7 +16,9 @@ lancaster(p, weight, is.onetail = TRUE, eff.sign)
 \item{eff.sign}{A vector of signs of effect sizes (1 or -1). It works when is.onetail = FALSE}
 }
 \value{
-Combined p-value
+p : Combined p-value
+
+overall.eff.direction : The direction of combined effects.
 }
 \description{
 P-value combination based on Lancaster's procedure
