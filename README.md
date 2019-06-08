@@ -38,17 +38,19 @@ $overall.eff.direction
 [1] "+"
 ```
 
-#### Input Arguments
-<b> p </b>	A numeric vector of p-values <br>
-<b> is.onetail	</b> Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. <br>
-<b> eff.sign </b> A vector of signs of effects. It works when is.onetail = FALSE
-  
-#### Value
-<b> p </b> Combined p-value <br>
-<b> optimal_rank </b> The optimal rank where minimum marginal p-value exists. <br>
-<b> eff.p.idx </b> Indexes of effective p-values <br>
-<b>MMP</b>  Minimum marginal p-value <br>
-<b>overall.eff.direction</b> The direction of combined effects. 
+|<b>Input Arguments</b>|   |
+|---|---|
+| <b> p </b>    |  A numeric vector of p-values |
+|  <b> is.onetail	</b> |  Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. |
+|  <b> eff.sign </b>  | A vector of signs of effects. It works when is.onetail = FALSE  |
+
+| <b>Value</b>  	|   |
+|---	|---	|
+|  <b> p </b> 	|   Combined p-value	|
+|  <b> optimal_rank </b>	| The optimal rank where minimum marginal p-value exists.   	|
+|   <b> eff.p.idx </b>	|   Indexes of effective p-values 	|
+|  <b>MMP</b> 	|   Minimum marginal p-value  	|
+|   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
 
 __2. wFisher__
 ------
@@ -65,15 +67,18 @@ $p
 $overall.eff.direction
 [1] "+"
 ```
-#### Input Arguments
-<b> p </b>	A numeric vector of p-values <br>
-<b> is.onetail	</b> Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. <br>
-<b> weight </b> A numeric vector of weight or sample size for each experiment. <b>Note! </b> If no weight option is given, the original Fisher method is performed. <br>
-<b> eff.sign </b> A vector of signs of effects. It works when is.onetail = FALSE
-  
-#### Value
-<b> p </b> Combined p-value <br>
-<b>overall.eff.direction</b> The direction of combined effects.
+| Input Arguments  	|   	|
+|---	|---	|
+|   <b> p </b>	|   	A numeric vector of p-values	|
+|   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
+|   <b> weight </b>	|  A numeric vector of weight or sample size for each experiment. <b>Note! </b> If no weight option is given, the original Fisher method is performed.  	|
+|  <b> eff.sign </b> 	| A vector of signs of effects. It works when is.onetail = FALSE  |
+
+
+| <b>Value</b>  	|   |
+|---	|---	|
+|  <b> p </b> 	|   Combined p-value	|
+|   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
 
 __3. wZ__
 ------
@@ -92,16 +97,20 @@ $overall.eff.direction
 $sumz
 [1] 2.911558
 ```
-#### Input Arguments
-<b> p </b>	A numeric vector of p-values <br>
-<b> is.onetail	</b> Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. <br>
-<b> weight </b> A numeric vector of weight each experiment. <b>Note! </b> If no weight option is given, Stouffer's method is performed. <br>
-<b> eff.sign </b> A vector of signs of effects. It works when is.onetail = FALSE
-  
-#### Value
-<b> p </b> Combined p-value <br>
-<b>overall.eff.direction</b> The direction of combined effects. <br>
-<b>sumz</b> Transformed sum of z values
+
+| Input Arguments  	|   	|
+|---	|---	|
+|   <b> p </b>	|   	A numeric vector of p-values	|
+|   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
+|   <b> weight </b>	|  A numeric vector of weight or sample size for each experiment. <b>Note! </b> If no weight option is given, the Stouffer's method is performed.  	|
+|  <b> eff.sign </b> 	| A vector of signs of effects. It works when is.onetail = FALSE  |
+
+| <b>Value</b>  	|   |
+|---	|---	|
+|  <b> p </b> 	|   Combined p-value	|
+|   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
+|   <b>sumz</b>	|  Transformed sum of z-values 	|
+
 
 __3. lancaster__
 ------
@@ -118,12 +127,15 @@ $p
 $overall.eff.direction
 [1] "+"
 ```
-#### Input Arguments
-<b> p </b>	A numeric vector of p-values <br>
-<b> is.onetail	</b> Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. <br>
-<b> weight </b> A numeric vector of weight each experiment. <b>Note! </b> REQUIRED! <br>
-<b> eff.sign </b> A vector of signs of effects. It works when is.onetail = FALSE
+
+| <b>Input Arguments</b> 	|   	|
+|---	|---	|
+|   <b> p </b>	|   	A numeric vector of p-values	|
+|   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
+|   <b> weight </b>	|  A numeric vector of weight or sample size for each experiment. <b>Required! </b>  	|
+|  <b> eff.sign </b> 	| A vector of signs of effects. It works when is.onetail = FALSE  |
   
-#### Value
-<b> p </b> Combined p-value <br>
-<b>overall.eff.direction</b> The direction of combined effects. <br>
+| <b>Value</b>  	|   |
+|---	|---	|
+|  <b> p </b> 	|   Combined p-value	|
+|   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
