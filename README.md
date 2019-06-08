@@ -3,14 +3,14 @@
 
 ## Introduction
 In meta-analysis, the results obtained from multiple experiments are combined to increase the statistical power. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
-<i>metapro </i> is a CRAN R package (not published as of June 8th, 2019) that provides functions for p-value combinations. There are four functions including
+<i>metapro </i> is a CRAN R package that provides functions for p-value combinations. There are four functions including
 
 1. MMPO : Minimum marginal p-value in joint order distribution
 2. wFisher : weighted Fisher's method
 3. wZ : weighted Z-method
 4. lancaster : Lancaster's procedure
 
-The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper (not published yet)
+The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper 
   
 ## Installation 
 ```
@@ -21,7 +21,7 @@ library(metapro)
 ```
 or 
 ```
-install.packages('metapro') # Not working as of June 08, 2019
+install.packages('metapro') 
 library(metapro)
 ```
 
