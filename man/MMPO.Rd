@@ -28,5 +28,5 @@ overall.eff.direction : The direction of combined effects.
 Minimum Marginal P-value in joint order distribution
 }
 \examples{
-MMPO(p=c(0.01, 0.02, 0.2, 0.5, 0.8), is.onetail=FALSE, eff.sign=c(1,1,1,1,1))
+# MMPO(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))
 }
