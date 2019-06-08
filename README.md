@@ -2,7 +2,7 @@
 
 
 ## Introduction
-Meta-analysis is performed to combine the results obtained from multiple experiments and to increase the statistical power. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
+In meta-analysis, the results obtained from multiple experiments are combined to increase the statistical power. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
 <i>metapro </i> is a CRAN R package (not published as of June 8th, 2019) that provides functions for p-value combinations. There are four functions including
 
 1. MMPO : Minimum marginal p-value in joint order distribution
@@ -10,7 +10,7 @@ Meta-analysis is performed to combine the results obtained from multiple experim
 3. wZ : weighted Z-method
 4. lancaster : Lancaster's procedure
 
-The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated features (e.g., detection of a African-specific feature).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper (not published yet)
+The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper (not published yet)
   
 ## Usage
 
@@ -37,8 +37,8 @@ $MMP
 $overall.eff.direction
 [1] "+"
 ```
-
-|<b>Input Arguments</b>|   |
+#### Input Arguments and Values
+|<b>Arguments</b>|   |
 |---|---|
 | <b> p </b>    |  A numeric vector of p-values |
 |  <b> is.onetail	</b> |  Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE. |
@@ -67,7 +67,8 @@ $p
 $overall.eff.direction
 [1] "+"
 ```
-| Input Arguments  	|   	|
+#### Input Arguments and Values
+| Arguments  	|   	|
 |---	|---	|
 |   <b> p </b>	|   	A numeric vector of p-values	|
 |   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
@@ -98,7 +99,8 @@ $sumz
 [1] 2.911558
 ```
 
-| Input Arguments  	|   	|
+#### Input Arguments and Values
+| Arguments  	|   	|
 |---	|---	|
 |   <b> p </b>	|   	A numeric vector of p-values	|
 |   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
@@ -127,8 +129,8 @@ $p
 $overall.eff.direction
 [1] "+"
 ```
-
-| <b>Input Arguments</b> 	|   	|
+#### Input Arguments and Values
+| <b>Arguments</b> 	|   	|
 |---	|---	|
 |   <b> p </b>	|   	A numeric vector of p-values	|
 |   <b> is.onetail	</b> 	|    Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.	|
