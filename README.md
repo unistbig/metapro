@@ -12,6 +12,19 @@ In meta-analysis, the results obtained from multiple experiments are combined to
 
 The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper (not published yet)
   
+## Installation 
+```
+install.packages('devtools') # install 'devtools'
+library(devtools)
+install_github('unistbig/metapro')
+library(metapro)
+```
+or 
+```
+install.packages('metapro') # Not working as of June 08, 2019
+library(metapro)
+```
+
 ## Usage
 
 __1. MMPO__
