@@ -17,13 +17,13 @@ F_i = function(p, i, n)
 #' @param p A vector of p-values
 #' @param is.onetail Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.
 #' @param eff.sign A vector of signs of effect sizes. It works when is.onetail = FALSE
-#' @import rJava rSymPy
+#' @importFrom "rSymPy" "Var" "sympy"
 #' @return p : Combined p-value
 #' @return optimal_rank : Optimal rank where minimum marginal p-value exists.
 #' @return eff.p.idx : Index of effective p-values
 #' @return MMP : Minimum marginal p-value
 #' @return overall.eff.direction : The direction of combined effects.
-#' @examples MMPO(p=c(0.01, 0.02, 0.2, 0.5, 0.8), is.onetail=FALSE, eff.sign=c(1,1,1,1,1))
+#' @examples # MMPO(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))
 #' @export
 
 MMPO = function(p, is.onetail = TRUE, eff.sign=NULL)

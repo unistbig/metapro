@@ -1,13 +1,13 @@
 Package: metapro
 Type: Package
-Title: Robust P-value Combination Methods
-Version: 1.5.0
+Title: Robust P-Value Combination Methods
+Version: 1.5.1
 Author: Sora Yoon <yoonsora1@unist.ac.kr>
 Maintainer: Sora Yoon <yoonsora1@unist.ac.kr>
-Description: It provides four p-value combination methods.
+Description: It provides four p-value combination methods including two newly designed methods that effectively detect the partially associated signals.
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
-Imports: metap, stats, rJava, rSymPy
+Imports: metap, stats, rSymPy
 RoxygenNote: 6.1.1
 
