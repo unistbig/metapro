@@ -2,7 +2,7 @@
 
 
 ## Introduction
-In meta-analysis, the results obtained from multiple experiments are combined to increase the statistical power. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
+The meta-analysis is conducted to increase the statistical power by combining evidences (e.g., effect sizes and p-values) obtained from multiple experiments. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
 <i>metapro </i> is a CRAN R package that provides functions for p-value combinations. There are four functions including
 
 1. ordmeta : Minimum marginal p-value in joint order distribution
@@ -10,7 +10,7 @@ In meta-analysis, the results obtained from multiple experiments are combined to
 3. wZ : weighted Z-method
 4. lancaster : Lancaster's procedure
 
-The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
+The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
   
 ## Installation 
 ```
