@@ -5,12 +5,12 @@
 In meta-analysis, the results obtained from multiple experiments are combined to increase the statistical power. The p-value combination has been widely used for meta-analysis when effect sizes are not available. 
 <i>metapro </i> is a CRAN R package that provides functions for p-value combinations. There are four functions including
 
-1. MMPO : Minimum marginal p-value in joint order distribution
+1. ordmeta : Minimum marginal p-value in joint order distribution
 2. wFisher : weighted Fisher's method
 3. wZ : weighted Z-method
 4. lancaster : Lancaster's procedure
 
-The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the MMPO and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
+The original Fisher's method and (weighted) Z-method have been widely used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
   
 ## Installation 
 ```
@@ -27,11 +27,11 @@ library(metapro)
 
 ## Usage
 
-__1. MMPO__
+__1. ordmeta__
 -----
-MMPO combines p-value based on the minimum marginal p-value in the joint order distribution. In result, it reports the optimal rank. 
+ordmeta combines p-value based on the minimum marginal p-value in the joint order distribution. In result, it reports the optimal rank. 
 #### Example
-`MMPO(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
+`ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
 will return
 
 ```
