@@ -1,13 +1,13 @@
 Package: metapro
 Type: Package
 Title: Robust P-Value Combination Methods
-Version: 1.5.1
+Version: 1.5.3
 Author: Sora Yoon <yoonsora1@unist.ac.kr>
 Maintainer: Sora Yoon <yoonsora1@unist.ac.kr>
-Description: It provides four p-value combination methods including two newly designed methods that effectively detect the partially associated signals.
+Description: The meta-analysis is performed to increase the statistical power by integrating the results from several experiments. The p-values are often combined in meta-analysis when the effect sizes are not available. The metapro R package provides not only traditional methods, but also new methods such as weighted Fisher’s method and ordmeta we developed. While the (weighted) Z-method is suitable for finding features effective in most experiments, (weighted) Fisher’s method and ordmeta are useful for detecting partially associated features. Thus, the users can choose the function based on their purpose. 
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
 Imports: metap, stats, rSymPy
 RoxygenNote: 6.1.1
-
+URL: https://www.r-project.org, http://github.com/unistbig/metapro

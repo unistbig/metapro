@@ -12,7 +12,7 @@ F_i = function(p, i, n)
 }
 
 
-#' @title MMPO
+#' @title ordmeta
 #' @description Minimum Marginal P-value in joint order distribution
 #' @param p A vector of p-values
 #' @param is.onetail Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.
@@ -23,10 +23,10 @@ F_i = function(p, i, n)
 #' @return eff.p.idx : Index of effective p-values
 #' @return MMP : Minimum marginal p-value
 #' @return overall.eff.direction : The direction of combined effects.
-#' @examples # MMPO(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))
+#' @examples \donttest{ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))}
 #' @export
 
-MMPO = function(p, is.onetail = TRUE, eff.sign=NULL)
+ordmeta = function(p, is.onetail = TRUE, eff.sign=NULL)
 {
   direc = eff.sign
   if(is.null(p)){stop("Input p-values are required.")}
@@ -80,12 +80,12 @@ MMPO = function(p, is.onetail = TRUE, eff.sign=NULL)
     return(RES)
   }else{
     p1 = p2 = p
-    idx_pos = which(eff.sign > 0)
+    idx_pos = which(eff.sign >= 0)
     idx_neg = which(eff.sign < 0)
-    p1[idx_pos] = p/2
-    p1[idx_neg] = 1-p/2
-    p2[idx_pos] = 1-p/2
-    p2[idx_neg] = p/2
+    p1[idx_pos] = p[idx_pos]/2
+    p1[idx_neg] = 1-p[idx_neg]/2
+    p2[idx_pos] = 1-p[idx_pos]/2
+    p2[idx_neg] = p[idx_neg]/2
 
     RES1 = ordmeta(p2 = p1)
     RES2 = ordmeta(p2 = p2)
@@ -95,6 +95,7 @@ MMPO = function(p, is.onetail = TRUE, eff.sign=NULL)
         RES = RES2; RES$overall.eff.direction = "-"
     }
     RES$p = RES$p * 2
+    if(RES$p > 1.0){RES$p = 1.0}
     return(RES)
   }
 }
@@ -110,6 +111,8 @@ MMPO = function(p, is.onetail = TRUE, eff.sign=NULL)
 #' @return overall.eff.direction : The direction of combined effects.
 #' @examples wFisher(p=c(0.01,0.2,0.8), weight = c(50,60,100),is.onetail=FALSE, eff.sign=c(1,1,1))
 #' @importFrom "stats" "pgamma" "qgamma"
+#' @references Becker BJ (1994). “Combining significance levels.” In Cooper H, Hedges LV (eds.), A handbook of research synthesis, 215–230. Russell Sage, New York.
+#' @references Fisher RA (1925). Statistical methods for research workers. Oliver and Boyd, Edinburgh.
 #' @export
 
 wFisher = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
@@ -166,6 +169,7 @@ wFisher = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
     Gsum = sum(G)
     resultP2 = pgamma(q=Gsum, shape=N, scale=2, lower.tail=F)
     resultP = 2* min(resultP1, resultP2)
+    if(resultP > 1.0){resultP = 1.0}
     overall.eff.direction = if(resultP1<=resultP2){"+"}else{"-"}
   }
   RES = if(is.onetail){list(p=min(1,resultP))}else{list(p=min(1,resultP), overall.eff.direction=overall.eff.direction)}
@@ -184,6 +188,9 @@ wFisher = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
 #' @return sumz : Sum of transformed z-score
 #' @examples wZ(p=c(0.01,0.2,0.8), weight = c(20,10,40), is.onetail=FALSE, eff.sign=c(1,-1,1))
 #' @import "metap"
+#' @references Becker BJ (1994). “Combining significance levels.” In Cooper H, Hedges LV (eds.), A handbook of research synthesis, 215–230. Russell Sage, New York.
+#' @references Stouffer SA, Suchman EA, DeVinney LC, Star SA, Williams RMJ (1949). The American soldier, vol 1: Adjustment during army life. Princeton University Press, Princeton.
+#' @references Mosteller, F. & Bush, R.R. (1954). Selected quantitative techniques. In: Handbook of Social Psychology, Vol. 1 (G. Lindzey, ed.), pp. 289–334. Addison‐Wesley, Cambridge, Mass.
 #' @export
 wZ = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
 {
@@ -201,7 +208,7 @@ wZ = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
   if(is.onetail){res = sumz(p = p, weights = weight)
   }else{
     p1 = p2 = p
-    idx_pos = which(eff.sign > 0)
+    idx_pos = which(eff.sign >= 0)
     idx_neg = which(eff.sign < 0)
     # positive direction
     p1[idx_pos] = p[idx_pos]/2
@@ -218,7 +225,7 @@ wZ = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
   {
     RES = list(p = res$p[,1], sumz = res$z[,1])
   }else{
-    RES = list(p = res$p[,1], overall.eff.direction = overall.eff.direction, sumz = res$z[,1])
+    RES = list(p = res$p[,1] * 2 , overall.eff.direction = overall.eff.direction, sumz = res$z[,1])
   }
 
   return(RES)
@@ -234,6 +241,8 @@ wZ = function(p, weight = NULL, is.onetail = TRUE, eff.sign)
 #' @return overall.eff.direction : The direction of combined effects.
 #' @examples lancaster(p=c(0.01,0.2,0.8), weight=c(20,50,10), is.onetail=FALSE, eff.sign=c(1,1,1))
 #' @importFrom "stats" "pchisq" "qchisq"
+#' @references Becker BJ (1994). “Combining significance levels.” In Cooper H, Hedges LV (eds.), A handbook of research synthesis, 215–230. Russell Sage, New York.
+#' @references Lancaster HO (1949). “Combination of probabilities arising from data in discrete distributions.” Biometrika, 36, 370–382.
 #' @export
 
 lancaster = function(p, weight, is.onetail=TRUE, eff.sign)
@@ -291,6 +300,7 @@ lancaster = function(p, weight, is.onetail=TRUE, eff.sign)
     Xsum = sum(X)
     resultP2 = pchisq(q=Xsum, df = Ntotal, lower.tail=F)
     resultP = 2* min(resultP1, resultP2)
+    if(resultP>1.0){resultP = 1.0}
     overall.eff.direction = if(resultP1<=resultP2){"+"}else{"-"}
   }
   RES = if(is.onetail){list(p=min(resultP,1))}else{list(p=min(resultP,1), overall.eff.direction=overall.eff.direction)}

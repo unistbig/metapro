@@ -26,3 +26,8 @@ sample size-weighted Fisher's method
 \examples{
 wFisher(p=c(0.01,0.2,0.8), weight = c(50,60,100),is.onetail=FALSE, eff.sign=c(1,1,1))
 }
+\references{
+Becker BJ (1994). “Combining significance levels.” In Cooper H, Hedges LV (eds.), A handbook of research synthesis, 215–230. Russell Sage, New York.
+
+Fisher RA (1925). Statistical methods for research workers. Oliver and Boyd, Edinburgh.
+}
