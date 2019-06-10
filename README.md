@@ -13,6 +13,12 @@ The meta-analysis is conducted to increase the statistical power by combining ev
 The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
   
 ## Installation 
+<b> NOTE </b><br>
+The package depends on the <i>'rJava'</i> package which required JAVA. <b>Please install JAVA first.</b> <br> 
+<a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
+
+After the JAVA is installed, open R and install the <i>metapro</i> package by typing 
+
 ```
 install.packages('devtools') # install 'devtools'
 library(devtools)
