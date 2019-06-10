@@ -8,5 +8,6 @@ Description: The meta-analysis is performed to increase the statistical power by
 License: GPL (>=2)
 LazyData: true
 Imports: metap, stats, rSymPy
+Encoding: UTF-8
 RoxygenNote: 6.1.1
 URL: https://www.r-project.org, http://github.com/unistbig/metapro
