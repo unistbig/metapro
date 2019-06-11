@@ -11,94 +11,94 @@ F_i = function(p, i, n)
   return(res)
 }
 
+#
+##' @title ordmeta
+##' @description Minimum Marginal P-value in joint order distribution
+##' @param p A vector of p-values
+##' @param is.onetail Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.
+##' @param eff.sign A vector of signs of effect sizes. It works when is.onetail = FALSE
+##' @importFrom "rSymPy" "Var" "sympy"
+##' @return p : Combined p-value
+##' @return optimal_rank : Optimal rank where minimum marginal p-value exists.
+##' @return eff.p.idx : Index of effective p-values
+##' @return MMP : Minimum marginal p-value
+##' @return overall.eff.direction : The direction of combined effects.
+##' @examples \donttest{ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))}
+##' @export
 
-#' @title ordmeta
-#' @description Minimum Marginal P-value in joint order distribution
-#' @param p A vector of p-values
-#' @param is.onetail Logical. If set TRUE, p-values are combined without considering the direction of effect, and vice versa. Default: TRUE.
-#' @param eff.sign A vector of signs of effect sizes. It works when is.onetail = FALSE
-#' @importFrom "rSymPy" "Var" "sympy"
-#' @return p : Combined p-value
-#' @return optimal_rank : Optimal rank where minimum marginal p-value exists.
-#' @return eff.p.idx : Index of effective p-values
-#' @return MMP : Minimum marginal p-value
-#' @return overall.eff.direction : The direction of combined effects.
-#' @examples \donttest{ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))}
-#' @export
-
-ordmeta = function(p, is.onetail = TRUE, eff.sign=NULL)
-{
-  direc = eff.sign
-  if(is.null(p)){stop("Input p-values are required.")}
-  if(!is.onetail & is.null(eff.sign)){stop("Input the direction of effects.")}
-  idx_na = which(is.na(p))
-  if(length(idx_na)>0){p = p[-idx_na]; eff.sign = eff.sign[-idx_na]}
-  ordmeta = function(p2)
-  {
-    ord = order(p2, decreasing = F)
-    pord = sort(p2, decreasing = F)
+#ordmeta = function(p, is.onetail = TRUE, eff.sign=NULL)
+#{
+#  direc = eff.sign
+#  if(is.null(p)){stop("Input p-values are required.")}
+#  if(!is.onetail & is.null(eff.sign)){stop("Input the direction of effects.")}
+#  idx_na = which(is.na(p))
+#  if(length(idx_na)>0){p = p[-idx_na]; eff.sign = eff.sign[-idx_na]}
+#  ordmeta = function(p2)
+#  {
+#    ord = order(p2, decreasing = F)
+#    pord = sort(p2, decreasing = F)
 
     # get alpha = MIN(F_(i)(x)) {i={1..n}}
-    N = length(p2)
-    alpha = 1.01 # an arbitrary number larger than 1
-    for(i in 1:N)
-    {
-      alpha_temp = F_i(pord[i], i, N)
-      if(alpha_temp < alpha){idx_minimum = i; alpha = alpha_temp}
-    }
-    # symbolic integral
-    for(i in 1:N)
-    {
-      x = Var("x")
-      y = Var("y")
-      if(i==1)
-      {
-        templete = paste(i,"*integrate(1, (x, lob, y))")
-        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
-        templete = gsub("lob", lob, templete)
-      }else if(i>1 & i<N){
-        integ = gsub(pattern = "y", replacement = "x", x = integ)
-        templete = paste(i, "*integrate(",integ,", (x, lob, y))")
-        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
-        templete = gsub("lob", lob, templete)
-      }else if(i==N)
-      {
-        integ = gsub(pattern = "y", replacement = "x", x=integ)
-        templete = paste(i, "*integrate(",integ,", (x, lob, 1))")
-        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
-        templete = gsub("lob", lob, templete)
-      }
-      #print(templete)
-      integ = sympy(templete)
-    }
-    res = 1-as.numeric(integ)
-    return(list(p=res, optimal_rank = idx_minimum, eff.p.idx = ord[1:idx_minimum], MMP = alpha))
-  }
-  if(is.onetail)
-  {
-    RES = ordmeta(p2 = p)
-    return(RES)
-  }else{
-    p1 = p2 = p
-    idx_pos = which(eff.sign >= 0)
-    idx_neg = which(eff.sign < 0)
-    p1[idx_pos] = p[idx_pos]/2
-    p1[idx_neg] = 1-p[idx_neg]/2
-    p2[idx_pos] = 1-p[idx_pos]/2
-    p2[idx_neg] = p[idx_neg]/2
+#    N = length(p2)
+#    alpha = 1.01 # an arbitrary number larger than 1
+#    for(i in 1:N)
+#    {
+#      alpha_temp = F_i(pord[i], i, N)
+#      if(alpha_temp < alpha){idx_minimum = i; alpha = alpha_temp}
+#    }
+#    # symbolic integral
+#    for(i in 1:N)
+#    {
+#      x = Var("x")
+#      y = Var("y")
+#      if(i==1)
+#      {
+#        templete = paste(i,"*integrate(1, (x, lob, y))")
+#        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
+#        templete = gsub("lob", lob, templete)
+#      }else if(i>1 & i<N){
+#        integ = gsub(pattern = "y", replacement = "x", x = integ)
+#        templete = paste(i, "*integrate(",integ,", (x, lob, y))")
+#        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
+#        templete = gsub("lob", lob, templete)
+#      }else if(i==N)
+#      {
+#        integ = gsub(pattern = "y", replacement = "x", x=integ)
+#        templete = paste(i, "*integrate(",integ,", (x, lob, 1))")
+#        lob = qbeta(p = alpha,shape1 = i, shape2 = N-i+1, lower.tail = T)
+#        templete = gsub("lob", lob, templete)
+#      }
+#      #print(templete)
+#      integ = sympy(templete)
+#    }
+#    res = 1-as.numeric(integ)
+#    return(list(p=res, optimal_rank = idx_minimum, eff.p.idx = ord[1:idx_minimum], MMP = alpha))
+#  }
+#  if(is.onetail)
+#  {
+#    RES = ordmeta(p2 = p)
+#    return(RES)
+#  }else{
+#    p1 = p2 = p
+#    idx_pos = which(eff.sign >= 0)
+#    idx_neg = which(eff.sign < 0)
+#    p1[idx_pos] = p[idx_pos]/2
+#    p1[idx_neg] = 1-p[idx_neg]/2
+#    p2[idx_pos] = 1-p[idx_pos]/2
+#    p2[idx_neg] = p[idx_neg]/2
 
-    RES1 = ordmeta(p2 = p1)
-    RES2 = ordmeta(p2 = p2)
-    if(RES1$p<=RES2$p){
-      RES = RES1; RES$overall.eff.direction = "+"
-    }else{
-        RES = RES2; RES$overall.eff.direction = "-"
-    }
-    RES$p = RES$p * 2
-    if(RES$p > 1.0){RES$p = 1.0}
-    return(RES)
-  }
-}
+#    RES1 = ordmeta(p2 = p1)
+#    RES2 = ordmeta(p2 = p2)
+#    if(RES1$p<=RES2$p){
+#      RES = RES1; RES$overall.eff.direction = "+"
+#    }else{
+#        RES = RES2; RES$overall.eff.direction = "-"
+#    }
+#    RES$p = RES$p * 2
+#    if(RES$p > 1.0){RES$p = 1.0}
+#    return(RES)
+#  }
+#}
 
 
 #' @title wFisher
