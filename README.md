@@ -161,7 +161,7 @@ $sumz
 |   <b>sumz</b>	|  Transformed sum of z-values 	|
 
 
-__3. lancaster__
+__4. lancaster__
 ------
 Lancaster's procedure - the generalized version Fisher's method <br>
 
