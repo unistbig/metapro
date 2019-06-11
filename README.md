@@ -32,7 +32,7 @@ install.packages('metapro')
 library(metapro)
 sympyStart()
 ```
-<b> Dealing with Errors </b><br>
+<b> Tip: Dealing with Errors </b><br>
 1. Encoding Error
 If you are using Windows, the following errors may occur:
 ```
@@ -43,7 +43,7 @@ In this case, type following in R console, and install the package again.
 ```
 Sys.setlocale('LC_ALL','C')
 ```
-2. Tip: Error from JAVA setting <br>
+2. Error from JAVA setting <br>
 Most error will occur with rJAVA. 
 If the error message contains 'JAVA', please try followings. <br>
   * Check whether both JAVA and R are 64-bit.
@@ -181,3 +181,4 @@ $overall.eff.direction
 
 ## Contact
 Sora Yoon: <yoonsora1@unist.ac.kr>
+Department of Biological Sciences, UNIST
