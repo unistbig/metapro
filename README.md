@@ -14,7 +14,7 @@ The original Fisher's method and (weighted) Z-method have been commonly used for
   
 ## Installation 
 <b> NOTE! </b><br>
-If JAVA is not installed on your PC, please <b>install JAVA</b> first because this package requires the the <i>'rJava'</i> package <br> 
+If JAVA is not installed on your PC, please <b>install JAVA first</b> because this package requires <i>'rJava'</i> package. <br> 
 Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
 
 After the JAVA is installed, open R and install the <i>metapro</i> package by typing 
