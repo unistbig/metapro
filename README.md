@@ -13,23 +13,41 @@ The meta-analysis is conducted to increase the statistical power by combining ev
 The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
   
 ## Installation 
-<b> NOTE </b><br>
-The package depends on the <i>'rJava'</i> package which required JAVA. <b>Please install JAVA first.</b> <br> 
-<a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
+<b> >>NOTE<< </b><br>
+If JAVA is not installed on your PC, please <b>install JAVA</b> first because this package requires the the <i>'rJava'</i> package <br> 
+Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
 
 After the JAVA is installed, open R and install the <i>metapro</i> package by typing 
 
 ```
 install.packages('devtools') # install 'devtools'
 library(devtools)
-install_github('unistbig/metapro')
-library(metapro)
+install_github('unistbig/metapro', INSTALL_opts=c("--no-multiarch"))
+library(metapro) # Load metapro package
+sympyStart()
 ```
 or 
 ```
 install.packages('metapro') 
 library(metapro)
+sympyStart()
 ```
+<b> Dealing with Errors </b><br>
+1. Encoding Error
+If you are using Windows, the following errors may occur:
+```
+Error in nchar(object, type = "chars") : 
+  invalid multibyte string, element 1
+```
+In this case, type following in R console, and install the package again.
+```
+Sys.setlocale('LC_ALL','C')
+```
+2. Tip: Error from JAVA setting <br>
+Most error will occur with rJAVA. 
+If the error message contains 'JAVA', please try followings. <br>
+  * Check whether both JAVA and R are 64-bit.
+  * Set proper environment variable for JAVA_HOME, RHOME and R_PATH
 
 ## Usage
 
@@ -160,3 +178,6 @@ $overall.eff.direction
 |---	|---	|
 |  <b> p </b> 	|   Combined p-value	|
 |   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
+
+## Contact
+Sora Yoon: <yoonsora1@unist.ac.kr>
