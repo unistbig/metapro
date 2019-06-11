@@ -23,7 +23,7 @@ F_i = function(p, i, n)
 ##' @return eff.p.idx : Index of effective p-values
 ##' @return MMP : Minimum marginal p-value
 ##' @return overall.eff.direction : The direction of combined effects.
-##' @examples \donttest{ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))}
+##' @examples donttest{ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))}
 ##' @export
 
 #ordmeta = function(p, is.onetail = TRUE, eff.sign=NULL)
