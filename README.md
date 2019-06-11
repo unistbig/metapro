@@ -66,7 +66,7 @@ __1. ordmeta__
 ordmeta combines p-value based on the minimum marginal p-value in the joint order distribution. In the result, it reports the combined p-value, optimal rank, effective p-value indices, marginal p-value at the optimal rank (MMP), and the direction of combined effect size (for two-tailed test). <br>
 #### Example
 `ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
-will return
+<br><span font-size:1em>  will return </span>
 
 ```
 $p
@@ -105,7 +105,7 @@ wFisher is designed to assign weights to each experiment based on the sample siz
 
 #### Example
 `wFisher(p=c(0.01, 0.02, 0.8, 0.25), weight = c(200, 500, 100, 80), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
-will return
+<br><span font-size:1em>  will return </span>
 
 ```
 $p
@@ -134,7 +134,7 @@ Weighted Z-method. This function has been modified from sumz function in <i>meta
 
 #### Example
 `wZ(p=c(0.01, 0.02, 0.8, 0.25), weight = c(200, 500, 100, 80), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
-will return
+<br><span font-size:1em>  will return </span>
 
 ```$p
 [1] 0.001798156
@@ -167,7 +167,7 @@ Lancaster's procedure - the generalized version Fisher's method <br>
 
 #### Example
 `lancaster(p=c(0.01, 0.02, 0.8, 0.25), weight = c(200, 500, 100, 80), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
-will return
+<br><span font-size:1em>  will return </span>
 
 ```$p
 $p
