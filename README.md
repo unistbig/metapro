@@ -10,7 +10,7 @@ The meta-analysis is conducted to increase the statistical power by combining ev
 3. wZ : weighted Z-method
 4. lancaster : Lancaster's procedure
 
-The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when the effect sizes of most experiments are not zero. However, this attributes is disadvantageous when detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in that situation. The detailed formulas are described in our paper. 
+The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when a feature is associated with most of the cohorts. However, this attributes is disadvantageous detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in those situations. The detailed formulas are described in our paper. 
   
 ## Installation 
 <b> NOTE! </b><br>
@@ -28,7 +28,7 @@ sympyStart()
 ```
 or 
 ```
-install.packages('metapro') 
+install.packages('metapro', INSTALL_opts=c("--no-multiarch")) 
 library(metapro)
 sympyStart()
 ```
@@ -47,13 +47,23 @@ Sys.setlocale('LC_ALL','C')
 Most error will occur with rJAVA. 
 If the error message contains 'JAVA', please try followings. <br>
   * Check whether both JAVA and R are 64-bit.
-  * Set proper environment variable for JAVA_HOME, RHOME and R_PATH
+  * Set proper environment variable for JAVA_HOME, CLASSPATH, and RPATH. For example,
+  ```
+  Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_211")
+  Sys.setenv(CLASSPATH="C:\\Program Files\\Java\\jdk1.8.0_211\\jre\\lib\\ext")
+  Sys.setenv(RPATH="C:\\Program Files\\R\\R-3.6.0\\bin\\x64")
+  ```
+  Next, check whether rJAVA is installed correctly, and try installing metapro again.
+  ```
+ install.packages('rJava')
+ library(rJava)
+  ```
 
 ## Usage
 
 __1. ordmeta__
 -----
-ordmeta combines p-value based on the minimum marginal p-value in the joint order distribution. In result, it reports the optimal rank. 
+ordmeta combines p-value based on the minimum marginal p-value in the joint order distribution. In the result, it reports the combined p-value, optimal rank, effective p-value indices, marginal p-value at the optimal rank (MMP), and the direction of combined effect size (for two-tailed test). <br>
 #### Example
 `ordmeta(p=c(0.01, 0.02, 0.8, 0.25), is.onetail=FALSE, eff.sign = c(1,1,1,-1))`
 will return
