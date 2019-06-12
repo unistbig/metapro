@@ -1,7 +1,7 @@
 Package: metapro
 Type: Package
 Title: Robust P-Value Combination Methods
-Version: 1.5.3
+Version: 1.5.5
 Author: Sora Yoon <yoonsora1@unist.ac.kr>
 Maintainer: Sora Yoon <yoonsora1@unist.ac.kr>
 Description: The meta-analysis is performed to increase the statistical power by integrating the results from several experiments.
