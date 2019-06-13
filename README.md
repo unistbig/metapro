@@ -49,7 +49,8 @@ On Windows,
 <b>Error from JAVA setting </b><br>
 Most error will occur with rJAVA. In this case, please
   * Check whether both JAVA and R are 64-bit, and
-  * Set proper environment variable for JAVA_HOME, CLASSPATH, and RPATH. For example,
+  * Set proper environment variable for JAVA_HOME, CLASSPATH, and RPATH.
+  * Tip: System environment variable can be easily set by using Set.setenv() function in R. For example, 
   ```
   Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_211")
   Sys.setenv(CLASSPATH="C:\\Program Files\\Java\\jdk1.8.0_211\\jre\\lib\\ext")
