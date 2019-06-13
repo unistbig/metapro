@@ -13,11 +13,11 @@ The meta-analysis is conducted to increase the statistical power by combining ev
 The original Fisher's method and (weighted) Z-method have been commonly used for p-value combination. In particular, the Z-method is effective when a feature is associated with most of the cohorts. However, this attributes is disadvantageous detecting partially associated patterns (e.g., detection of African-specific features in trans-ethnic analysis).Therefore, in this study, we designed the ordmeta and wFisher method that work effectively in those situations. The detailed formulas are described in our paper. 
   
 ## Installation 
-<b> NOTE! </b><br>
-If JAVA is not installed on your PC, please <b>install JAVA first</b> because this package requires <i>'rJava'</i> package. <br> 
-Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
+<b> Prerequisites </b><br>
+1. JAVA : If not installed yet, please install it first. Download: Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
+2. Rtools (for Windows): Rtools are required for Windows users. Download: <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a><br>
 
-After the JAVA is installed, open R and install the <i>metapro</i> package by typing 
+After all prerequisites are installed, open R and install the <i>metapro</i> package by typing 
 
 ```
 install.packages('devtools') # install 'devtools'
@@ -33,20 +33,22 @@ library(metapro)
 sympyStart()
 ```
 <b> Tip: Dealing with Errors </b><br>
-1. Encoding Error
-If you are using Windows, the following errors may occur:
-```
-Error in nchar(object, type = "chars") : 
-  invalid multibyte string, element 1
-```
-In this case, type following in R console, and install the package again.
-```
-Sys.setlocale('LC_ALL','C')
-```
-2. Error from JAVA setting <br>
-Most error will occur with rJAVA. 
-If the error message contains 'JAVA', please try followings. <br>
-  * Check whether both JAVA and R are 64-bit.
+In most cases, installation errors come from encoding and JAVA environment variable settings.<br>
+So, please try following things.<p>
+
+<b>Encoding error</b>
+On Windows,
+  * System locale setting modification: Click Start -> Control panel-> Clock and Region -> Region -> Administrative -> Change system locale... -> set 'Current system locale' as <b>English (United States) </b> and <b>check the box</b> in the below (Beta: Use Unicode UTF-8 for worldwide language support). <br>
+  * Reboot the PC, and execute Rstudio.<br>
+  * In the R console, type 
+  ```
+  Sys.setlocale('LC_ALL','C')
+  ```
+  and install the package again. <br>
+
+<b>Error from JAVA setting </b><br>
+Most error will occur with rJAVA. In this case, please
+  * Check whether both JAVA and R are 64-bit, and
   * Set proper environment variable for JAVA_HOME, CLASSPATH, and RPATH. For example,
   ```
   Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_211")
