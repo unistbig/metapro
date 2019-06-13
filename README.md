@@ -34,7 +34,7 @@ sympyStart()
 ```
 <b> Tip: Dealing with Errors </b><br>
 In most cases, installation errors come from 1) <u>encoding problem</u> and 2) <u>JAVA environment variable settings</u>.<br>
-So, please try following things.<p>
+So, please try followings.<p>
 
 <b>Encoding error</b><br>
 On Windows,
