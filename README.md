@@ -33,7 +33,7 @@ library(metapro)
 sympyStart()
 ```
 <b> Tip: Dealing with Errors </b><br>
-In most cases, installation errors come from 1)encoding problem and 2)JAVA environment variable settings.<br>
+In most cases, installation errors come from 1) <u>encoding problem</u> and 2) <u>JAVA environment variable settings</u>.<br>
 So, please try following things.<p>
 
 <b>Encoding error</b><br>
