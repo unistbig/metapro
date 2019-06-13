@@ -33,10 +33,10 @@ library(metapro)
 sympyStart()
 ```
 <b> Tip: Dealing with Errors </b><br>
-In most cases, installation errors come from encoding and JAVA environment variable settings.<br>
+In most cases, installation errors come from 1)encoding problem and 2)JAVA environment variable settings.<br>
 So, please try following things.<p>
 
-<b>Encoding error</b>
+<b>Encoding error</b><br>
 On Windows,
   * System locale setting modification: Click Start -> Control panel-> Clock and Region -> Region -> Administrative -> Change system locale... -> set 'Current system locale' as <b>English (United States) </b> and <b>check the box</b> in the below (Beta: Use Unicode UTF-8 for worldwide language support). <br>
   * Reboot the PC, and execute Rstudio.<br>
