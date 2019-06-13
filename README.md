@@ -14,7 +14,7 @@ The original Fisher's method and (weighted) Z-method have been commonly used for
   
 ## Installation 
 <b> Prerequisites </b><br>
-1. JAVA : If not installed yet, please install it first. Download: Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
+1. JAVA : If not installed yet, please install it first. Download: <a href="https://www.java.com/en/">https://www.java.com/en/</a><br>
 2. Rtools (for Windows): Rtools are required for Windows users. Download: <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a><br>
 
 After all prerequisites are installed, open R and install the <i>metapro</i> package by typing 
