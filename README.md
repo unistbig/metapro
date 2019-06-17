@@ -24,12 +24,14 @@ install.packages('devtools') # install 'devtools'
 library(devtools)
 install_github('unistbig/metapro', INSTALL_opts=c("--no-multiarch"))
 library(metapro) # Load metapro package
+library(rSymPy)
 sympyStart()
 ```
 or 
 ```
 install.packages('metapro', INSTALL_opts=c("--no-multiarch")) 
 library(metapro)
+library(rSymPy)
 sympyStart()
 ```
 <b> Tip: Dealing with Errors </b><br>
@@ -55,6 +57,10 @@ Most error will occur with rJAVA. In this case, please
   Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_211")
   Sys.setenv(CLASSPATH="C:\\Program Files\\Java\\jdk1.8.0_211\\jre\\lib\\ext")
   Sys.setenv(RPATH="C:\\Program Files\\R\\R-3.6.0\\bin\\x64")
+  ```
+  If you are Linux or Mac OSX user, type following on terminal and re-open the R console after setting the environment variables.
+  ```
+  sudo R CMD javareconf
   ```
   Next, check whether rJAVA is installed correctly, and try installing metapro again.
   ```
