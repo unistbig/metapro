@@ -199,5 +199,5 @@ $overall.eff.direction
 |   <b>overall.eff.direction</b>	|  The direction of combined effects. 	|
 
 ## Contact
-Sora Yoon: <yoonsora1@unist.ac.kr> <br>
+Sora Yoon: <ysora90@gmail.com> <br>
 Department of Biological Sciences, UNIST
